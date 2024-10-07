@@ -2,7 +2,8 @@ import configparser
 import datetime
 from typing import Any, Mapping, Tuple, Union
 
-from pydantic import BaseModel, BaseSettings, validator
+from pydantic import BaseModel, validator
+from pydantic_settings import BaseSettings
 
 from app.misc.paths import BASE_DIR
 

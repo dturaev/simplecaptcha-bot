@@ -1,19 +1,26 @@
-[tool.poetry]
+# Notes
+# Create environment with chosen Python version: `uv venv --python 3.12`
+# To install dependencies: `uv sync`
+# To list packages: `uv pip list`
+# To list for conflicts: `uv pip check`
+
+[project]
 name = "captchabot"
 version = "0.1.0"
 description = ""
-authors = ["Mikhail Smolnikov <smolnik.mikhail@gmail.com>"]
+authors = [
+    { author = "Mikhail Smolnikov", email = "smolnik.mikhail@gmail.com" },
+]
+requires-python = ">=3.9"
+dependencies = [
+    "aiogram>=3",
+    "arq>=0.26.0",
+    "pydantic-settings>=2.5.2",
+]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-aiogram = "3.0.0b3"
-arq = "^0.26.0"
+[project.optional-dependencies]
+dev = ["black>=22.6.0", "isort>=5.10.1", "flake8>=4.0.1"]
 
-[tool.poetry.dev-dependencies]
-black = "^22.6.0"
-isort = "^5.10.1"
-flake8 = "^4.0.1"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"

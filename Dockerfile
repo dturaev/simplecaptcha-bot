@@ -56,3 +56,9 @@ WORKDIR /usr/src/simplecaptcha-bot
 COPY . /usr/src/simplecaptcha-bot
 
 CMD python -m app
+
+# Typically, we want to tag the production image after building:
+# `docker tag <image_id> myapp:latest`
+# This is the image we would deploy or share.
+# To manage disk space, we can run `docker image prune` to remove unused
+# (i.e. untagged) images, including intermediate build images.
