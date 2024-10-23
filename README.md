@@ -28,3 +28,14 @@ Try it out! [@simplecaptcha_bot](https://t.me/simplecaptcha_bot)
 ## Usage
 
 Run `docker-compose up -d` to start.
+
+---
+
+## Additional notes
+
+- Build Dockerfile: `docker build -t eva_bot .`
+  - `.` indicates that the Dockerfile is in the current directory
+- Run docker container: `docker run -it --rm eva_bot`
+  - `-it` runs the container interactively (useful for testing)
+  - `--rm` removes container after it stops (optional but useful for keeping things clean)
+  - `docker run -it eva_bot /bin/bash` - run interactively (start shell inside container)
