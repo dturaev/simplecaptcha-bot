@@ -12,6 +12,7 @@ Try it out! [@simplecaptcha_bot](https://t.me/simplecaptcha_bot)
 - Automatically rejects requests if user does not respond to captcha after 2 minutes
 
 ## Tech Stack
+
 - [Aiogram](https://github.com/aiogram/aiogram) v3.0.0b3 - framework for Telegram Bot API
 - [Redis](https://redis.io) v7.0 - storage of temporary data and scheduled tasks
 - [Arq](https://github.com/samuelcolvin/arq) v0.22 - scheduler
@@ -25,4 +26,5 @@ Try it out! [@simplecaptcha_bot](https://t.me/simplecaptcha_bot)
 6. Set the Redis password in `redis.conf`
 
 ## Usage
+
 Run `docker-compose up -d` to start.

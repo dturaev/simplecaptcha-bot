@@ -2,7 +2,7 @@ import configparser
 import datetime
 from typing import Any, Mapping, Tuple, Union
 
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 from pydantic_settings import BaseSettings
 
 from app.misc.paths import BASE_DIR
@@ -25,7 +25,7 @@ class WebhookSettings(BaseModel):
     host: str
     path: str
 
-    @validator("host")
+    @field_validator("host")
     def host_to_url(cls, v: str) -> str:
         if v.startswith("https"):
             return v
@@ -57,7 +57,7 @@ class RedisSettings(BaseModel):
 class CaptchaSettings(BaseModel):
     duration: Union[int, datetime.timedelta]
 
-    @validator("duration")
+    @field_validator("duration")
     def to_timedelta(cls, v: Union[int, datetime.timedelta]) -> datetime.timedelta:
         if isinstance(v, datetime.timedelta):
             return v
@@ -65,6 +65,9 @@ class CaptchaSettings(BaseModel):
 
 
 class Settings(BaseSettings):
+    # https://docs.pydantic.dev/latest/concepts/pydantic_settings/#usage
+    # If model inherits from BaseSettings, the model initialiser determines the
+    # values of fields that are not passed as kwargs by reading from environment.
     bot: BotSettings
     webhook: WebhookSettings
     webapp: WebAppSettings
