@@ -24,16 +24,12 @@ class ArqScheduler:
         self, task: str, job_kwargs: Dict[str, Any], job_config: JobConfig
     ) -> Optional[Job]:
         job = await self._enqueue_job(task, job_kwargs, job_config)
-        logger.info(
-            "Enqueued job ({task}) with params {kwargs}".format(
-                task=task, kwargs=job_kwargs
-            )
-        )
+        logger.info("Enqueued job (%s) with params %s", task, job_kwargs)
         return job
 
     async def abort_job(self, job_id: str) -> None:
         await self._abort_job(job_id)
-        logger.info("Aborted job ({job_id})".format(job_id=job_id))
+        logger.info("Aborted job (%s)", job_id)
 
     async def _enqueue_job(
         self, task: str, task_kwargs: Dict[str, Any], task_config: JobConfig

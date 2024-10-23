@@ -9,7 +9,12 @@ router = Router()
 
 
 @router.message(CommandStart())
-async def handle_start_command(message: Message, bot: Bot) -> None:
+async def handle_start_command(message: Message, bot: Bot, settings: Settings) -> None:
+    # How many arguments are passed to this handler? Why can we just add the
+    # argument "settings" and it magically works, but not if we name it differently?
+    # Also, we should probably write middleware to limit access to handlers.
+    if message.from_user.id not in settings.ADMINS:
+        return
     text = (
         "Привет! У вас есть проблема с ботами-спамерами в чате?\n"
         "У меня есть решение - captcha.\n\n"
@@ -27,5 +32,6 @@ async def handle_start_command(message: Message, bot: Bot) -> None:
 
 @router.message(Command(commands=["privacy"]))
 async def handle_privacy_command(message: Message, settings: Settings) -> None:
-    text = f"Privacy Policy:\n{settings.bot.privacy_policy_link}"
-    await message.answer(text)
+    # text = f"Privacy Policy:\n{settings.bot.privacy_policy_link}"
+    # await message.answer(text)
+    return

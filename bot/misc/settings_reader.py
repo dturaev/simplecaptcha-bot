@@ -79,6 +79,7 @@ class Settings(BaseSettings):
     webapp: WebAppSettings
     redis: RedisSettings
     captcha: CaptchaSettings
+    ADMINS: list = [642986667]  # я
 
     @classmethod
     def settings_customise_sources(
