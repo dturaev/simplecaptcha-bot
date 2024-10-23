@@ -1,5 +1,5 @@
 from aiogram import Bot, Router
-from aiogram.dispatcher.filters.command import Command, CommandStart
+from aiogram.filters.command import Command, CommandStart
 from aiogram.types import Message
 
 from bot.misc.kb_generators import generate_invite_bot_keyboard
