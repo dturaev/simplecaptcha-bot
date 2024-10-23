@@ -8,17 +8,21 @@ from aiogram.types import (
     ChatMemberUpdated,
     Message,
 )
-from pydantic import validator
+from pydantic import BaseModel, field_validator
+
+# Aiogram used to have classes based on Pydantic models, which was
+# removed later. See here (commit on Oct 1, 2022, "Remove filters factory"):
+# https://github.com/aiogram/aiogram/commits/dev-3.x/aiogram/filters/base.py
 
 ChatUpdate = Union[Message, CallbackQuery, Message, ChatJoinRequest, ChatMemberUpdated]
 ChatTypeT = Union[str, List[str], Set[str], Tuple[str, ...]]
 CHAT_TYPES: Set[str] = {"private", "group", "supergroup", "channel"}
 
 
-class ChatType(BaseFilter):
+class ChatType(BaseFilter, BaseModel):
     types: ChatTypeT
 
-    @validator("types", pre=True)
+    @field_validator("types", mode="before")
     def pre_check_types(
         cls, value: ChatTypeT
     ) -> Union[List[str], Set[str], Tuple[str, ...]]:
@@ -33,3 +37,7 @@ class ChatType(BaseFilter):
             # e.g. callback query in a message sent from inline mode
             return False
         return event_chat.type in self.types
+
+
+# For testing:
+# ChatType(types={"group", "supergroup"})
