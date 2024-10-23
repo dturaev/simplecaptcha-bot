@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   bot:
     container_name: "eva-bot"
@@ -8,7 +6,7 @@ services:
     working_dir: "/app"
     stop_signal: SIGINT
     restart: unless-stopped
-    command: "python -m app"
+    command: "python -m bot"
     ports:
       - "8080:8080"
   redis:

@@ -8,13 +8,12 @@ from pydantic_settings import BaseSettings, PydanticBaseSettingsSource
 from bot.misc.paths import BASE_DIR
 
 
-def ini_file_settings() -> Mapping[str, Any]:
+def ini_file_settings(_=None) -> Mapping[str, Any]:
     """
     https://docs.pydantic.dev/latest/concepts/pydantic_settings/#customise-settings-sources
     Pydantic docs: 'callable should take an instance of the settings class as
     its sole argument and return a dict.' - but this doesn't seem to work?
-    args:
-        _: Any -> not working, removed (?!)
+    => parameter _: Any was replaced by _=None
     """
     config = configparser.ConfigParser()
     config.read(BASE_DIR / "config.ini")

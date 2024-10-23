@@ -19,11 +19,7 @@ async def join_expired_task(
     )
     is_captcha_passed = not await lock_user.is_captcha_target(chat_id, user_id, salt)
     if is_captcha_passed:
-        logger.info(
-            "The user user {user} in chat {chat} already pass captcha".format(
-                user=user_id, chat=chat_id
-            )
-        )
+        logger.info(f"User {user_id} in chat {chat_id} already passed captcha")
         return
     try:
         await bot.decline_chat_join_request(chat_id, user_id)
@@ -31,12 +27,7 @@ async def join_expired_task(
     except TelegramAPIError as e:
         logger.error(
             "Error while declining chat join request "
-            "for user {user} in chat {chat}: {error}".format(
-                user=user_id, chat=chat_id, error=e
-            )
+            f"for user {user_id} in chat {chat_id}: {e}"
         )
         return
-    logger.info(
-        "The user ({user}) join request to chat ({chat}) "
-        "was declined because of a captcha timeout".format(user=user_id, chat=chat_id)
-    )
+    logger.info("TIMEOUT for ({user_id}) in chat ({chat_id}) ")

@@ -27,7 +27,7 @@ Try it out! [@simplecaptcha_bot](https://t.me/simplecaptcha_bot)
 
 ## Usage
 
-Run `docker-compose up -d` to start.
+Run `docker compose up -d` to start.
 
 ---
 

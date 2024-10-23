@@ -2,6 +2,8 @@ import logging
 from typing import Any, Dict, cast
 
 from aiogram import Bot
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 from arq import run_worker
 from arq.connections import RedisSettings
 from arq.typing import WorkerSettingsType
@@ -21,7 +23,10 @@ def configure_logging() -> None:
 
 
 async def startup(ctx: Dict[str, Any]):
-    ctx["bot"] = Bot(token=settings.bot.token, parse_mode="html")
+    ctx["bot"] = Bot(
+        token=settings.bot.token,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML),
+    )
     ctx["lock_user_service"] = LockUserService(
         connection_uri=settings.redis.connection_uri,
     )
