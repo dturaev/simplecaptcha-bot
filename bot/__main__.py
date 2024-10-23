@@ -1,6 +1,8 @@
 import asyncio
 
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
 from aiohttp import web
 
 from bot.handlers import main_router
@@ -28,7 +30,10 @@ async def on_shutdown(bot: Bot) -> None:
 
 async def main() -> None:
     configure_logging()
-    bot = Bot(token=settings.bot.token, parse_mode="html")
+    bot = Bot(
+        token=settings.bot.token,
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML),
+    )
     dp = Dispatcher()
     dp.include_router(main_router)
     dp.startup.register(on_startup)

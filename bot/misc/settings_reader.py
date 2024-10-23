@@ -1,14 +1,21 @@
 import configparser
 import datetime
-from typing import Any, Mapping, Tuple, Union
+from typing import Any, Mapping, Tuple, Type, Union
 
 from pydantic import BaseModel, field_validator
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, PydanticBaseSettingsSource
 
 from bot.misc.paths import BASE_DIR
 
 
-def ini_file_settings(_: Any) -> Mapping[str, Any]:
+def ini_file_settings() -> Mapping[str, Any]:
+    """
+    https://docs.pydantic.dev/latest/concepts/pydantic_settings/#customise-settings-sources
+    Pydantic docs: 'callable should take an instance of the settings class as
+    its sole argument and return a dict.' - but this doesn't seem to work?
+    args:
+        _: Any -> not working, removed (?!)
+    """
     config = configparser.ConfigParser()
     config.read(BASE_DIR / "config.ini")
     return {
@@ -74,17 +81,18 @@ class Settings(BaseSettings):
     redis: RedisSettings
     captcha: CaptchaSettings
 
-    class Config:
-        @classmethod
-        def customise_sources(
-            cls,
-            init_settings: Mapping[str, Any],
-            env_settings: Mapping[str, Any],
-            file_secret_settings: Mapping[str, Any],
-        ) -> Tuple:  # type: ignore
-            return (
-                init_settings,
-                ini_file_settings,
-                env_settings,
-                file_secret_settings,
-            )
+    @classmethod
+    def settings_customise_sources(
+        cls,
+        settings_cls: type[BaseSettings],
+        init_settings: PydanticBaseSettingsSource,  # Mapping[str, Any]
+        env_settings: PydanticBaseSettingsSource,  # Mapping[str, Any]
+        dotenv_settings: PydanticBaseSettingsSource,
+        file_secret_settings: PydanticBaseSettingsSource,  # Mapping[str, Any]
+    ) -> tuple[PydanticBaseSettingsSource, ...]:
+        return (
+            init_settings,
+            ini_file_settings,
+            env_settings,
+            file_secret_settings,
+        )
