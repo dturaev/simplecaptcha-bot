@@ -6,8 +6,8 @@ from arq import run_worker
 from arq.connections import RedisSettings
 from arq.typing import WorkerSettingsType
 
-from app.misc.settings_reader import Settings
-from app.services.lock_user import LockUserService
+from bot.misc.settings_reader import Settings
+from bot.services.lock_user import LockUserService
 from worker.tasks.join_expired import join_expired_task
 
 settings = Settings()

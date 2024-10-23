@@ -1,1 +1,74 @@
-.venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# C extensions
+*.o
+*.a
+*.out
+*.lib
+*.dll
+*.dylib
+*.exe
+
+# Virtual environments and dependency caches
+venv/
+.env/
+.venv/
+*.egg-info/
+.eggs/
+Pipfile
+Pipfile.lock
+poetry.lock
+site-packages/
+# If using poetry or uv, exclude local venv directories
+.poetry/
+.pyenv/
+.mypy_cache/
+pytest_cache/
+.coverage
+
+# Temporary files and directories
+*.log
+*.tmp
+*.swp
+*.swo
+*.orig
+*.bak
+
+# Distribution / packaging artifacts
+build/
+dist/
+wheels/
+*.egg
+*.tar.gz
+*.zip
+
+# Test, development, and documentation artifacts
+tests/
+docs/
+__init__.py
+*.md
+*.rst
+
+# Git and other VCS files
+.git/
+.gitignore
+.gitattributes
+
+# IDE / Editor configuration files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Docker specific files
+Dockerfile
+docker-compose.yml
+
+# OS generated files
+.DS

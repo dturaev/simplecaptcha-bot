@@ -3,10 +3,10 @@ import asyncio
 from aiogram import Bot, Dispatcher
 from aiohttp import web
 
-from app.handlers import main_router
-from app.misc.configure import configure_logging, configure_services
-from app.misc.settings_reader import Settings
-from app.misc.webhook import configure_app
+from bot.handlers import main_router
+from bot.misc.configure import configure_logging, configure_services
+from bot.misc.settings_reader import Settings
+from bot.misc.webhook import configure_app
 
 settings = Settings()
 

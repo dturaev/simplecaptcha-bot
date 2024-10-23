@@ -6,8 +6,8 @@ from arq import create_pool
 from arq.connections import ArqRedis, RedisSettings
 from arq.jobs import Job
 
-from app.data_structures.arq import JobConfig
-from app.misc.loggers import logger
+from bot.data_structures.arq import JobConfig
+from bot.misc.loggers import logger
 
 
 class ArqScheduler:

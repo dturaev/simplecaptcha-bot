@@ -2,8 +2,8 @@ from aiogram import Bot, Router
 from aiogram.dispatcher.filters.command import Command, CommandStart
 from aiogram.types import Message
 
-from app.misc.kb_generators import generate_invite_bot_keyboard
-from app.misc.settings_reader import Settings
+from bot.misc.kb_generators import generate_invite_bot_keyboard
+from bot.misc.settings_reader import Settings
 
 router = Router()
 

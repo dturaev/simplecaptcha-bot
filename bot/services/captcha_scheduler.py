@@ -1,8 +1,8 @@
 from datetime import timedelta
 
-from app.data_structures.arq import JobConfig
-from app.data_structures.captcha import LockJobKey
-from app.services.scheduler import ArqScheduler
+from bot.data_structures.arq import JobConfig
+from bot.data_structures.captcha import LockJobKey
+from bot.services.scheduler import ArqScheduler
 
 
 class CaptchaScheduler(ArqScheduler):

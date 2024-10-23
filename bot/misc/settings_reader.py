@@ -5,7 +5,7 @@ from typing import Any, Mapping, Tuple, Union
 from pydantic import BaseModel, field_validator
 from pydantic_settings import BaseSettings
 
-from app.misc.paths import BASE_DIR
+from bot.misc.paths import BASE_DIR
 
 
 def ini_file_settings(_: Any) -> Mapping[str, Any]:

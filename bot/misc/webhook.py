@@ -5,7 +5,7 @@ from aiogram.dispatcher.webhook.aiohttp_server import (
 )
 from aiohttp import web
 
-from app.misc.settings_reader import Settings
+from bot.misc.settings_reader import Settings
 
 
 def configure_app(dp: Dispatcher, bot: Bot, settings: Settings) -> web.Application:

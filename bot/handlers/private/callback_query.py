@@ -1,11 +1,11 @@
 from aiogram import Bot, Router, html
 from aiogram.types import BufferedInputFile, CallbackQuery, InputMediaPhoto
 
-from app.data_structures.callback_data import CaptchaAnswerCallbackData
-from app.data_structures.captcha import CaptchaResultStatus
-from app.misc.filename_utils import generate_captcha_image_filename
-from app.misc.kb_generators import generate_chat_url_keyboard
-from app.services.captcha import CaptchaService
+from bot.data_structures.callback_data import CaptchaAnswerCallbackData
+from bot.data_structures.captcha import CaptchaResultStatus
+from bot.misc.filename_utils import generate_captcha_image_filename
+from bot.misc.kb_generators import generate_chat_url_keyboard
+from bot.services.captcha import CaptchaService
 
 router = Router()
 

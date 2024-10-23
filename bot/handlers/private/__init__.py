@@ -1,6 +1,6 @@
 from aiogram import Router
 
-from app.filters.chat_type import ChatType
+from bot.filters.chat_type import ChatType
 
 from .callback_query import router as callback_query_router
 from .message import router as message_router

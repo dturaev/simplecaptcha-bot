@@ -1,11 +1,11 @@
 import logging
 from typing import Any, Dict
 
-from app.misc.settings_reader import Settings
-from app.services.captcha import CaptchaService
-from app.services.captcha_generator import CaptchaGenerator
-from app.services.captcha_scheduler import CaptchaScheduler
-from app.services.lock_user import LockUserService
+from bot.misc.settings_reader import Settings
+from bot.services.captcha import CaptchaService
+from bot.services.captcha_generator import CaptchaGenerator
+from bot.services.captcha_scheduler import CaptchaScheduler
+from bot.services.lock_user import LockUserService
 
 
 async def configure_services(settings: Settings) -> Dict[str, Any]:
