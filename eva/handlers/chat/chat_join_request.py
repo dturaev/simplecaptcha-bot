@@ -17,7 +17,7 @@ async def handle_chat_join_request(
     chat_id = update.chat.id
     user = update.from_user
     user_id = user.id
-    logger.warning(f"User {user_repr(user)} wants to join chat {chat_id}!!!")
+    logger.warning(f"!!! User {user_repr(user)} wants to join chat {chat_id}")
     captcha_data = await captcha.generate_captcha()
     salt = await captcha.lock_user(
         chat_id, user_id, correct_code=captcha_data.correct_emoji_code
