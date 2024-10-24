@@ -1,5 +1,6 @@
 # Dockerfile based on https://github.com/python-poetry/poetry/discussions/1879
 # UV docker guide: https://docs.astral.sh/uv/guides/integration/docker/
+# Example: https://github.com/astral-sh/uv-docker-example/blob/main/Dockerfile
 # `python-base` sets up all our shared environment variables
 FROM python:3.12-slim AS python-base
 # Note: uv provides some pre-built docker images, we can just take those instead
@@ -18,6 +19,11 @@ ENV PYTHONUNBUFFERED=1 \
     PYSETUP_PATH="/opt/pysetup" \
     VENV_PATH="/opt/pysetup/.venv"
 
+# Once project is installed, you can:
+# a) "Activate" virtual environment by placing binary directory at the front of the path
+# b) Or, you can use `uv run` for any commands that require the environment
+# c) Or, `UV_PROJECT_ENVIRONMENT` setting can be set before syncing to install to
+#    the system Python environment and skip environment activation entirely.
 # Prepend venv to PATH
 ENV PATH="$VENV_PATH/bin:$PATH"
 
@@ -34,11 +40,11 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 # Download latest installer
 # ADD https://astral.sh/uv/install.sh /uv-installer.sh
 # Best practice is to pin to a specific uv version:
-ADD https://astral.sh/uv/0.4.25/install.sh /uv-installer.sh
+ADD https://astral.sh/uv/0.4.26/install.sh /uv-installer.sh
 # Run installer then remove it
 RUN sh /uv-installer.sh && rm /uv-installer.sh
 # Alternatively, we can copy binary from pre-built image
-# COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+# COPY --from=ghcr.io/astral-sh/uv:0.4.26 /uv /uvx /bin/
 # Ensure the installed binary is on the PATH
 ENV PATH="/root/.cargo/bin/:$PATH"
 
