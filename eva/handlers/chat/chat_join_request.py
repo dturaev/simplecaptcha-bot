@@ -3,6 +3,8 @@ from aiogram.types import BufferedInputFile, ChatJoinRequest
 
 from eva.misc.filename_utils import generate_captcha_image_filename
 from eva.misc.kb_generators import generate_captcha_keyboard
+from eva.misc.loggers import logger
+from eva.misc.utils import user_repr
 from eva.services.captcha import CaptchaService
 
 router = Router()
@@ -13,7 +15,9 @@ async def handle_chat_join_request(
     update: ChatJoinRequest, bot: Bot, captcha: CaptchaService
 ) -> None:
     chat_id = update.chat.id
-    user_id = update.from_user.id
+    user = update.from_user
+    user_id = user.id
+    logger.warning(f"User {user_repr(user)} wants to join chat {chat_id}!!!")
     captcha_data = await captcha.generate_captcha()
     salt = await captcha.lock_user(
         chat_id, user_id, correct_code=captcha_data.correct_emoji_code

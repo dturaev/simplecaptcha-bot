@@ -12,6 +12,11 @@ from eva.misc.webhook import configure_app
 
 settings = Settings()
 
+# Improvement ideas
+# - Add timeout if captcha wasn't solved correctly
+# - Generate captcha pic on the fly
+# - Add setting that determines captcha language
+
 
 async def on_startup(dispatcher: Dispatcher, bot: Bot) -> None:
     services = await configure_services(settings)

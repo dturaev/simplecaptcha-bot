@@ -36,3 +36,10 @@ async def handle_privacy_command(message: Message, settings: Settings) -> None:
     # text = f"Privacy Policy:\n{settings.bot.privacy_policy_link}"
     # await message.answer(text)
     return
+
+
+@router.message(Command(commands=["ping"]))
+async def handle_ping_command(message: Message, settings: Settings) -> None:
+    text = "pong"
+    await message.answer(text)
+    return

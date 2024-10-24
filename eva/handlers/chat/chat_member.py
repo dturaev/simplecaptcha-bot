@@ -16,7 +16,10 @@ LEAVE_TRANSITION = ~JOIN_TRANSITION
 async def member_joined(event: types.ChatMemberUpdated, bot: Bot) -> None:
     user = event.new_chat_member.user
     logger.warning(f"User {user_repr(user)} joined!")
-    # text = "Привет и хэв фан ☀️ если что, есть и #правила"
+    text = (
+        f"{user.mention_html(user.first_name)}, привет и "
+        "филь шпас ☀️ если что, у нас есть #правила"
+    )
     # await bot.send_message(chat_id=update.chat.id, text=text)
 
 
