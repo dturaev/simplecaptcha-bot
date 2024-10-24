@@ -1,11 +1,11 @@
 import datetime
 from io import BytesIO
 
-from bot.data_structures.captcha import CaptchaData, CaptchaResultStatus
-from bot.misc.uuid import generate_uuid
-from bot.services.captcha_generator import CaptchaGenerator
-from bot.services.captcha_scheduler import CaptchaScheduler
-from bot.services.lock_user import LockUserService
+from eva.data_structures.captcha import CaptchaData, CaptchaResultStatus
+from eva.misc.uuid import generate_uuid
+from eva.services.captcha_generator import CaptchaGenerator
+from eva.services.captcha_scheduler import CaptchaScheduler
+from eva.services.lock_user import LockUserService
 
 
 class CaptchaService:

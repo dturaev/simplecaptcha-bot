@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 from aiohttp import web
 
-from bot.misc.settings_reader import Settings
+from eva.misc.settings_reader import Settings
 
 
 def configure_app(dp: Dispatcher, bot: Bot, settings: Settings) -> web.Application:

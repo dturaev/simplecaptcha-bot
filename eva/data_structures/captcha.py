@@ -5,7 +5,7 @@ from typing import List, NamedTuple, Set
 
 from pydantic import BaseModel
 
-from bot.data_structures.redis import RedisBaseKey
+from eva.data_structures.redis import RedisBaseKey
 
 Emoji = NamedTuple("Emoji", [("symbol", str), ("code", str)])
 

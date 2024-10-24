@@ -5,10 +5,10 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiohttp import web
 
-from bot.handlers import main_router
-from bot.misc.configure import configure_logging, configure_services
-from bot.misc.settings_reader import Settings
-from bot.misc.webhook import configure_app
+from eva.handlers import main_router
+from eva.misc.configure import configure_logging, configure_services
+from eva.misc.settings_reader import Settings
+from eva.misc.webhook import configure_app
 
 settings = Settings()
 

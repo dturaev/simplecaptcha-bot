@@ -1,7 +1,7 @@
 from typing import Optional
 
-from bot.data_structures.captcha import AnswerKey
-from bot.services.redis import BaseRedis
+from eva.data_structures.captcha import AnswerKey
+from eva.services.redis import BaseRedis
 
 
 class LockUserService(BaseRedis):

@@ -1,7 +1,7 @@
 from aiogram import Router
 from aiogram.types import Update
 
-from bot.misc.loggers import logger
+from eva.misc.loggers import logger
 
 router = Router()
 

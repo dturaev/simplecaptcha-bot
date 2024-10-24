@@ -1,9 +1,9 @@
 from aiogram import Bot, Router, html
 from aiogram.types import BufferedInputFile, ChatJoinRequest
 
-from bot.misc.filename_utils import generate_captcha_image_filename
-from bot.misc.kb_generators import generate_captcha_keyboard
-from bot.services.captcha import CaptchaService
+from eva.misc.filename_utils import generate_captcha_image_filename
+from eva.misc.kb_generators import generate_captcha_keyboard
+from eva.services.captcha import CaptchaService
 
 router = Router()
 

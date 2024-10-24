@@ -3,10 +3,10 @@ import random
 from io import BytesIO
 from typing import List, Optional, Tuple
 
-from bot.data_structures.captcha import CaptchaData, CaptchaStaticData, Emoji, EmojiData
-from bot.misc.exceptions import CaptchaLoadError, FileOpenError
-from bot.misc.loggers import logger
-from bot.misc.paths import ASSETS_DIR
+from eva.data_structures.captcha import CaptchaData, CaptchaStaticData, Emoji, EmojiData
+from eva.misc.exceptions import CaptchaLoadError, FileOpenError
+from eva.misc.loggers import logger
+from eva.misc.paths import ASSETS_DIR
 
 DEFAULT_CAPTCHA_BUTTONS_NUMBER = 10
 

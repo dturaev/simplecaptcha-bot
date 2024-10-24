@@ -6,8 +6,8 @@ from arq import create_pool
 from arq.connections import ArqRedis, RedisSettings
 from arq.jobs import Job
 
-from bot.data_structures.arq import JobConfig
-from bot.misc.loggers import logger
+from eva.data_structures.arq import JobConfig
+from eva.misc.loggers import logger
 
 
 class ArqScheduler:

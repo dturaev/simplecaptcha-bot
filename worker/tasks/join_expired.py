@@ -3,8 +3,8 @@ from typing import Any, Dict
 from aiogram import Bot
 from aiogram.exceptions import TelegramAPIError
 
-from bot.misc.loggers import arq_logger as logger
-from bot.services.lock_user import LockUserService
+from eva.misc.loggers import arq_logger as logger
+from eva.services.lock_user import LockUserService
 
 
 async def join_expired_task(
