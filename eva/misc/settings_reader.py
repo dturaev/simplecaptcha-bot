@@ -1,6 +1,6 @@
 import configparser
 import datetime
-from typing import Any, Mapping, Tuple, Type, Union
+from typing import Any, Mapping, Union
 
 from pydantic import BaseModel, field_validator
 from pydantic_settings import BaseSettings, PydanticBaseSettingsSource
@@ -13,7 +13,7 @@ def ini_file_settings(_=None) -> Mapping[str, Any]:
     # https://docs.pydantic.dev/latest/concepts/pydantic_settings/#customise-settings-sources
     # Pydantic docs: 'callable should take an instance of the settings class as
     # its sole argument and return a dict.' - but this doesn't seem to work?
-    # Therefore, parameter `_: Any`` was replaced by `_=None`
+    # Therefore, parameter `_: Any` was replaced by `_=None`
     config = configparser.ConfigParser()
     config.read(BASE_DIR / "config.ini")
     return {

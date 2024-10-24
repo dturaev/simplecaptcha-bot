@@ -10,8 +10,9 @@ router = Router()
 
 @router.message(CommandStart())
 async def handle_start_command(message: Message, bot: Bot, settings: Settings) -> None:
-    # How many arguments are passed to this handler? Why can we just add the
-    # argument "settings" and it magically works, but not if we name it differently?
+    # We can add another parameter `settings` and it magically works.
+    # What is this sorcery, "dependency injection"?
+    # https://docs.aiogram.dev/en/latest/dispatcher/dependency_injection.html
     # Also, we should probably write middleware to limit access to handlers.
     if message.from_user.id not in settings.ADMINS:
         return

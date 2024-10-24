@@ -10,8 +10,8 @@ from aiogram.types import (
 )
 from pydantic import BaseModel, field_validator
 
-# Aiogram used to have classes based on Pydantic models, which was
-# removed later. See here (commit on Oct 1, 2022, "Remove filters factory"):
+# Aiogram ChatType class used to inherit from Pydantic BaseModel, which was
+# removed in a later version; see commit on Oct 1, 2022, "Remove filters factory":
 # https://github.com/aiogram/aiogram/commits/dev-3.x/aiogram/filters/base.py
 
 ChatUpdate = Union[Message, CallbackQuery, Message, ChatJoinRequest, ChatMemberUpdated]
