@@ -6,7 +6,7 @@ services:
     working_dir: "/app"
     stop_signal: SIGINT
     restart: unless-stopped
-    command: "python -m bot"
+    command: "python -m eva"
     ports:
       - "8080:8080"
   redis:
